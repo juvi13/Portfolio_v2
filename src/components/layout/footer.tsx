@@ -12,9 +12,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const portfolioVersions = [
-  { version: "1.0", url: "#", date: "2023-01-15" },
-  { version: "2.0", url: "#", date: "2024-03-20" },
-  { version: "Current", url: "#", date: new Date().toISOString().split('T')[0] },
+  { version: "1.0", url: "https://juviportfolio.netlify.app", date: "2025-01-15" },
+  { version: "[C]", url: "#", date: new Date().toISOString().split('T')[0] },
 ];
 
 export function Footer() {
@@ -38,10 +37,14 @@ export function Footer() {
                 <DropdownMenuSeparator />
                 {portfolioVersions.map((item) => (
                    <DropdownMenuItem key={item.version} asChild>
-                    <Link href={item.url}>
-                      <div className="flex justify-between w-full">
+                    <Link
+                      href={item.url}
+                      target={item.url.startsWith('http') ? '_blank' : undefined}
+                      rel={item.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    >
+                      <div className="flex items-center w-full">
                         <span>Version {item.version}</span>
-                        <span className="text-muted-foreground text-xs">{item.date}</span>
+                        <span className="ml-8 text-muted-foreground text-xs">{item.date}</span>
                       </div>
                     </Link>
                   </DropdownMenuItem>
