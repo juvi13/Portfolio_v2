@@ -10,25 +10,23 @@ import {
   DialogTrigger,
   DialogFooter,
   DialogDescription,
-  DialogOverlay,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
-export function ContactDialog({ children }: { children: React.ReactNode }) {
+export function ContactDialog({ children, email }: { children: React.ReactNode, email: string }) {
     const [name, setName] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
 
-    const mailtoLink = `mailto:contact@glassfolio.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\n\nMessage: ${message}`)}`;
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\n\nMessage: ${message}`)}`;
 
     return (
         <Dialog>
             <DialogTrigger asChild>
                 {children}
             </DialogTrigger>
-            <DialogOverlay className="backdrop-blur-sm" />
             <DialogContent className="sm:max-w-md glass-card p-6">
                  <DialogHeader>
                     <DialogTitle className="text-2xl font-bold">Contact Me</DialogTitle>
