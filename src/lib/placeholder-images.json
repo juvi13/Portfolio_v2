@@ -1,0 +1,34 @@
+{
+  "placeholderImages": [
+    {
+      "id": "map-location",
+      "description": "A placeholder image of a map showing a location.",
+      "imageUrl": "https://images.unsplash.com/photo-1476385822777-70eabacbd41f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYXAlMjBjaXR5fGVufDB8fHx8MTc2MjQ2ODczMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "map city"
+    },
+    {
+      "id": "profile-picture",
+      "description": "A placeholder image for a person's profile picture.",
+      "imageUrl": "https://images.unsplash.com/photo-1762558302575-72f10fcd36ef?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1160",
+      "imageHint": "person face"
+    },
+    {
+      "id": "project-1",
+      "description": "A placeholder image for a web development project.",
+      "imageUrl": "https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsYXB0b3AlMjBjb2RlfGVufDB8fHx8MTc2MjUwMjA5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop code"
+    },
+    {
+      "id": "project-2",
+      "description": "A placeholder image for a software project.",
+      "imageUrl": "https://images.unsplash.com/photo-1568992687947-868a62a9f521?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZWFtJTIwbWVldGluZ3xlbnwwfHx8fDE3NjI0NjcwMjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "team meeting"
+    },
+    {
+      "id": "project-3",
+      "description": "A placeholder image for a creative project.",
+      "imageUrl": "https://images.unsplash.com/photo-1600697395543-ef3ee6e9af7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkZXNpZ24lMjBza2V0Y2h8ZW58MHx8fHwxNzYyNTU0NTgyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "design sketch"
+    }
+  ]
+}
