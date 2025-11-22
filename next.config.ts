@@ -33,3 +33,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+;(nextConfig as any).devIndicators = false;
