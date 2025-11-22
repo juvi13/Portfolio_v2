@@ -1,21 +1,53 @@
+'use client';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { MoveRight, ArrowDown } from 'lucide-react';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { useState, useRef } from 'react';
 
 
 export function Hero() {
   const profileImage = PlaceHolderImages.find(p => p.id === 'profile-picture');
+  const [isEnlarged, setIsEnlarged] = useState(false);
+  const pressTimer = useRef<NodeJS.Timeout | null>(null);
+
+  const handlePressStart = () => {
+    pressTimer.current = setTimeout(() => {
+      setIsEnlarged(true);
+      if (window.navigator && window.navigator.vibrate) {
+        window.navigator.vibrate(200);
+      }
+    }, 500); // 500ms for long press
+  };
+
+  const handlePressEnd = () => {
+    if (pressTimer.current) {
+      clearTimeout(pressTimer.current);
+    }
+  };
+
+  const handleCloseEnlarged = () => {
+    setIsEnlarged(false);
+  };
   
   return (
     <section id="hero" className="container mx-auto px-4 md:px-6 min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center text-center relative">
       <div className="max-w-3xl flex flex-col items-center">
         {profileImage && (
-            <Avatar className="w-32 h-32 mb-6 border-4 border-background shadow-lg">
+            <div
+            onMouseDown={handlePressStart}
+            onMouseUp={handlePressEnd}
+            onMouseLeave={handlePressEnd}
+            onTouchStart={handlePressStart}
+            onTouchEnd={handlePressEnd}
+            onContextMenu={(e) => e.preventDefault()} // Prevent context menu on long press
+          >
+            <Avatar className="w-64 h-64 mb-6 border-4 border-background shadow-lg cursor-pointer">
                 <AvatarImage src={profileImage.imageUrl} alt={profileImage.description} data-ai-hint={profileImage.imageHint} />
-                <AvatarFallback>JD</AvatarFallback>
+                <AvatarFallback>AD</AvatarFallback>
             </Avatar>
+            </div>
         )}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-headline tracking-tighter mb-4">
           Akash Dutta
@@ -43,6 +75,18 @@ export function Hero() {
       >
         <ArrowDown className="h-8 w-8 text-muted-foreground" />
       </Link>
+      {isEnlarged && profileImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
+          onClick={handleCloseEnlarged}
+        >
+          <img
+            src={profileImage.imageUrl}
+            alt={profileImage.description}
+            className="max-w-[90vw] max-h-[90vh] rounded-lg"
+          />
+        </div>
+      )}
     </section>
   );
 }

@@ -38,7 +38,7 @@ export function ContactDialog({ children, email }: { children: React.ReactNode, 
                     <div className="space-y-4">
                         <div className="grid gap-2">
                             <Label htmlFor="name">Name</Label>
-                            <Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="John Doe" />
+                            <Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your Name..." />
                         </div>
                         <div className="grid gap-2">
                             <Label htmlFor="subject">Subject</Label>
@@ -52,10 +52,10 @@ export function ContactDialog({ children, email }: { children: React.ReactNode, 
                      <div className="h-full w-full overflow-hidden rounded-lg min-h-[200px] md:min-h-0">
                         <iframe
                             className="w-full h-full"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d201859.95311874233!2d-122.5779034293883!3d37.75776269695843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1628095475355!5m2!1sen!2s"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58962.635586094446!2d88.30615338432386!3d22.535501384584997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1763837223171!5m2!1sen!2sin"
                             allowFullScreen={true}
                             loading="lazy"
-                            title="Google Map of San Francisco"
+                            title="Google Map of Kolkata"
                         ></iframe>
                     </div>
                 </div>
