@@ -5,7 +5,7 @@ import { MoveRight, ArrowDown } from 'lucide-react';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useState, useRef } from 'react';
-
+import BackgroundAnimation from '@/components/ui/background-animation';
 
 export function Hero() {
   const profileImage = PlaceHolderImages.find(p => p.id === 'profile-picture');
@@ -30,12 +30,13 @@ export function Hero() {
   const handleCloseEnlarged = () => {
     setIsEnlarged(false);
   };
-  
+
   return (
-    <section id="hero" className="container mx-auto px-4 md:px-6 min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center text-center relative">
-      <div className="max-w-3xl flex flex-col items-center">
+    <section id="hero" className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-center items-center text-center isolate overflow-hidden">
+      <BackgroundAnimation />
+      <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-3xl flex flex-col items-center mb-20">
         {profileImage && (
-            <div
+          <div
             onMouseDown={handlePressStart}
             onMouseUp={handlePressEnd}
             onMouseLeave={handlePressEnd}
@@ -44,10 +45,10 @@ export function Hero() {
             onContextMenu={(e) => e.preventDefault()} // Prevent context menu on long press
           >
             <Avatar className="w-64 h-64 mb-6 border-4 border-background shadow-lg cursor-pointer">
-                <AvatarImage src={profileImage.imageUrl} alt={profileImage.description} data-ai-hint={profileImage.imageHint} />
-                <AvatarFallback>AD</AvatarFallback>
+              <AvatarImage src={profileImage.imageUrl} alt={profileImage.description} data-ai-hint={profileImage.imageHint} />
+              <AvatarFallback>AD</AvatarFallback>
             </Avatar>
-            </div>
+          </div>
         )}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-headline tracking-tighter mb-4">
           Akash Dutta
@@ -70,7 +71,7 @@ export function Hero() {
       </div>
       <Link
         href="#about"
-        className="absolute bottom-10 animate-bounce"
+        className="absolute bottom-10 animate-bounce z-10"
         aria-label="Scroll to about section"
       >
         <ArrowDown className="h-8 w-8 text-muted-foreground" />
