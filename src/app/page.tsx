@@ -11,9 +11,9 @@ import { GoToTop } from "@/components/go-to-top";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-background overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-background">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow overflow-x-hidden">
         <Hero />
         <div className="space-y-24 md:space-y-32 my-24 md:my-32">
           <About />
